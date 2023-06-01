@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MyConsole {
+  public static void main(String[] args) {
+
+    Scanner input = new Scanner(System.in);
+    HexaTranslator trans = new HexaTranslator();
+
+    System.out.println("Hello and welcome to my hexadecimal to decimal translator!");
+
+    while (true) {
+      System.out.println("Would you like to (1)translate a hexadecimal to decimal form, (2)see a list of all hexadecimal values that you have entered so far, (3)see a list of all decimal values that were translated from your hexadecimal input, or (-1) exit this program: ");
+      int choice = input.nextInt();
+
+      if (choice == 1) {
+        System.out.println("What hexadecimal value would you like translated into decimal: ");
+        String num = input.next();
+        System.out.println("----------------------------------------------");
+        System.out.println(trans.translateHexa(num));
+        System.out.println("----------------------------------------------");
+      }
+
+      if (choice == 2) {
+        System.out.println("----------------------------------------------");
+        System.out.println(trans.getHexaDec());
+        System.out.println("----------------------------------------------");
+      }
+
+      if (choice == 3) {
+        System.out.println("----------------------------------------------");
+        System.out.println(trans.getDecimals());
+        System.out.println("----------------------------------------------");
+      }
+
+      if (choice == -1) {
+        break;
+      }
+    }
+    
+
+    
+    
+  }
+}
