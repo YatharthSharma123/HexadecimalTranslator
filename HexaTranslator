@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+
+public class HexaTranslator {
+
+  String digit = "";
+  ArrayList<Long> decimals = new ArrayList<Long>();
+  ArrayList<String> hexaDec = new ArrayList<String>();
+  
+  ArrayList<String> digits = new ArrayList<String>(FileReader.getStringData("HexaDigits.txt"));
+    
+  
+  public ArrayList<String> getHexaDec() {
+    return hexaDec;
+  }
+
+  public ArrayList<Long> getDecimals() {
+    return decimals;
+  }
+
+
+  public long translateHexa(String str) {
+
+    for (int i = 0; i < digits.size(); i++) {
+      digit += digits.get(i);
+    }
+
+    str = str.toUpperCase();
+    int val = 1;
+    long ans = 0;
+    long temp;
+    hexaDec.add(str);
+
+    for (int i = 0; i < str.length(); i++) {
+      char a = str.charAt(i);
+      int b = digit.indexOf(a);
+      ans += Math.pow(16, str.length() - val) * b;
+      val++;
+    }
+    
+    decimals.add(ans);
+    temp = ans;
+    val = 1;
+    ans = 0;
+    return temp;
+  }
+
+ 
+}
